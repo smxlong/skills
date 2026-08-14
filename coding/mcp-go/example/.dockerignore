@@ -1,0 +1,5 @@
+.git
+.gitignore
+example
+prolog-kb.json
+smoke.sh

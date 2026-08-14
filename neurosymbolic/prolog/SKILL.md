@@ -297,6 +297,57 @@ the tree. Explain only pure, preferably ground goals. Do not use it for goals
 that print output, use randomness, mutate process-local predicates, or perform
 other side effects; use `prolog_prove` or `prolog_query` instead.
 
+## Importing and exporting units (source control)
+
+Durable units are the source of truth inside the server, but they usually also
+need to live in a repository so they can be reviewed, versioned, and reloaded
+later or on another machine. The round-trip uses only the standard tools.
+
+### Export (server → files)
+
+1. `prolog_list_units` to record the unit names and the ordered scope.
+2. For each unit, `prolog_show_unit` and save the `source` field verbatim to a
+   file named after the unit, for example `<unit>.pl`. The `source` field is
+   canonical, reload-safe text: use it, and do not reconstruct source by
+   concatenating the per-clause `text` entries. For a large unit the result may
+   be written to a file; read the `source` field out of that file.
+3. Record, next to the units, two pieces of metadata that are **not** part of a
+   unit's source: the ordered scope, and each unit's `description`. A README or
+   a loader file is a good home for both.
+
+### Import (files → server)
+
+1. For each file, `prolog_create_unit` with the unit name (the file's stem) and
+   its recorded description, then `prolog_set_unit_source` with the file's full
+   contents. Prefer `prolog_set_unit_source` over a sequence of `prolog_assert`
+   calls: it loads the unit wholesale and atomically, and syntax-checks it
+   before committing. Do these two steps sequentially per unit.
+2. `prolog_set_scope` to the recorded order, then `prolog_check` the whole scope
+   and resolve any diagnostics before reasoning.
+
+### Gotchas
+
+- **Do not put `:- multifile` or `:- discontiguous` in unit source for the
+  server.** All in-scope units load into one program, so a predicate may be
+  split across units with no declaration at all; these directives are
+  unnecessary and the directive allowlist may reject them outright (a bare
+  `:- multifile foo/1.` can fail to load). Those declarations belong only in a
+  plain-`swipl` loader used outside the server, where a predicate split across
+  files genuinely needs `:- multifile`, and per-record fact grouping raises
+  discontiguous warnings that a loader-level `style_check(-discontiguous)` can
+  silence. Keep such declarations in the loader, never in the units, so the same
+  sources load in both worlds.
+- **Unit name is the contract.** Keep unit name = file stem so re-import is
+  unambiguous and predicates that are intentionally split across units line up.
+- **A full-state snapshot is a different thing.** The server's entire durable
+  knowledge base (every unit, including unrelated ones) can be backed up from
+  its state file, but that is an all-or-nothing dump. Exported unit files are a
+  curated, documented subset you actually review and version; prefer them for
+  sharing a specific body of knowledge.
+- **Verify after import/export.** If the domain ships a plain-`swipl` loader and
+  an invariants file, run them after a round-trip as an independent check that
+  nothing was dropped or reordered.
+
 ## Modeling patterns that work well
 
 ### Separate facts, rules, and scenarios

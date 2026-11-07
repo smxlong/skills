@@ -1,6 +1,6 @@
 ---
 name: qemu
-description: Create, operate, inspect, snapshot, clone, and troubleshoot QEMU virtual machines for experiments, using direct QEMU/QMP or the existing libvirt manager. Use for VM lifecycle, qcow2 disk chains, guest boot/networking, device changes, and reproducible VM labs.
+description: Create, operate, inspect, snapshot, clone, and troubleshoot QEMU virtual machines using direct QEMU/QMP or the existing VM manager. Use for VM lifecycle, qcow2 storage, guest access, device changes, or isolated multi-node routing, GRE and NAT simulations.
 ---
 
 # QEMU experiments
@@ -24,6 +24,8 @@ private overlay of a verified base whenever practical.
   safe rebase/commit, offline versus live operations, restore and backup.
 - [Networking and guest access](references/networking.md): user networking,
   loopback forwarding, isolated multi-VM networks, SSH, consoles and sharing.
+- [Simulated internet](references/simulated-internet.md): wholly isolated
+  multi-node L3 routing, GRE, consumer DHCP/DNS/NAT, CGNAT/PAT and fault injection.
 - [Control and diagnosis](references/control.md): QMP, guest agent, hotplug,
   block jobs, migration and failure diagnosis.
 - [Verified lab](references/lab.md): runnable exercises, actual tested versions,
@@ -39,6 +41,11 @@ private overlay of a verified base whenever practical.
   loopback-bound forwarded ports/VNC/GDB. These interfaces are not authenticated
   by default. Host networking, PCI passthrough and writable host-directory
   sharing are distinct choices, not prerequisites for running a guest.
+- For simulated-internet scenarios, use guest-only Unix-stream data links and
+  out-of-band control sockets inside a network-disabled container. Do not add
+  user-mode uplinks, host bridges/TAPs, real DNS or host route/firewall changes
+  to make a synthetic scenario work. Verify isolation before launch and after
+  cleanup; the included internet lab refuses a namespace with non-loopback NICs.
 - A running VM owns its writable images. Use its manager or QMP for live disk
   changes. Run `qemu-img` mutations only on stopped, exclusively owned images.
   Do not bypass locks with `-U` or repair flags to force an operation through.

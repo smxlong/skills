@@ -1,0 +1,167 @@
+{
+  "qemu": "QEMU emulator version 10.0.0",
+  "isolation": {
+    "interfaces": "[{\"ifindex\":1,\"ifname\":\"lo\",\"flags\":[\"LOOPBACK\",\"UP\",\"LOWER_UP\"],\"mtu\":65536,\"qdisc\":\"noqueue\",\"operstate\":\"UNKNOWN\",\"linkmode\":\"DEFAULT\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"loopback\",\"address\":\"00:00:00:00:00:00\",\"broadcast\":\"00:00:00:00:00:00\"}]\n",
+    "routes": "[]\n",
+    "transport": "QEMU stream Unix sockets only; management is Unix QGA/QMP",
+    "external_uplink": false
+  },
+  "nodes": {
+    "client": [
+      [
+        "lan",
+        true,
+        "192.168.50.2/24"
+      ]
+    ],
+    "cpe": [
+      [
+        "lan",
+        false,
+        "192.168.50.1/24"
+      ],
+      [
+        "access",
+        true,
+        "203.0.113.2/30"
+      ]
+    ],
+    "carrier": [
+      [
+        "access",
+        false,
+        "203.0.113.1/30"
+      ],
+      [
+        "subscriber",
+        true,
+        "100.64.2.1/30"
+      ],
+      [
+        "backbone",
+        true,
+        "192.0.2.1/30"
+      ]
+    ],
+    "core": [
+      [
+        "backbone",
+        false,
+        "192.0.2.2/30"
+      ],
+      [
+        "service",
+        true,
+        "198.51.100.1/24"
+      ]
+    ],
+    "server": [
+      [
+        "service",
+        false,
+        "198.51.100.2/24"
+      ]
+    ],
+    "subscriber2": [
+      [
+        "subscriber",
+        false,
+        "100.64.2.2/30"
+      ]
+    ]
+  },
+  "checks": [
+    {
+      "name": "enclosing container has only loopback and no external uplink"
+    },
+    {
+      "name": "six Linux VMs ready over management sockets; all data links are Unix streams"
+    },
+    {
+      "name": "single-hop L3 reaches home gateway"
+    },
+    {
+      "name": "multi-hop routed workload preserves client source IP"
+    },
+    {
+      "name": "TTL expiry exposes all three router hops",
+      "trace": [
+        "PING 198.51.100.2 (198.51.100.2) 56(84) bytes of data.\nFrom 192.168.50.1 icmp_seq=1 Time to live exceeded\n\n--- 198.51.100.2 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms\n\n",
+        "PING 198.51.100.2 (198.51.100.2) 56(84) bytes of data.\nFrom 203.0.113.1 icmp_seq=1 Time to live exceeded\n\n--- 198.51.100.2 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms\n\n",
+        "PING 198.51.100.2 (198.51.100.2) 56(84) bytes of data.\nFrom 192.0.2.2 icmp_seq=1 Time to live exceeded\n\n--- 198.51.100.2 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms\n\n"
+      ]
+    },
+    {
+      "name": "forwarding disabled breaks path; enabling it restores reachability"
+    },
+    {
+      "name": "return-path blackhole breaks responses despite forward routing; removal restores service"
+    },
+    {
+      "name": "GRE carries private overlay traffic across routed underlay"
+    },
+    {
+      "name": "GRE MTU permits 1476-byte inner packet and rejects one byte larger with DF"
+    },
+    {
+      "name": "blocking IP protocol 47 breaks GRE while ordinary underlay IP still works"
+    },
+    {
+      "name": "consumer DHCP supplies address gateway and simulated DNS; hostname resolves locally",
+      "lease": "[{\"ifindex\":2,\"ifname\":\"eth0\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"pfifo_fast\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"addr_info\":[{\"family\":\"inet\",\"local\":\"192.168.50.112\",\"prefixlen\":24,\"scope\":\"global\",\"label\":\"eth0\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]\n[{\"dst\":\"default\",\"gateway\":\"192.168.50.1\",\"dev\":\"eth0\",\"flags\":[]}]\nnameserver 198.51.100.2\n"
+    },
+    {
+      "name": "consumer NAT44 translates private client to public-facing CPE address"
+    },
+    {
+      "name": "consumer stateful firewall blocks unsolicited inbound to LAN"
+    },
+    {
+      "name": "explicit consumer port forward permits only chosen inbound service"
+    },
+    {
+      "name": "double NAT and second subscriber share one simulated public carrier address"
+    },
+    {
+      "name": "conntrack shows private-to-shared and shared-to-public translation layers",
+      "carrier_mappings": "tcp      6 119 TIME_WAIT src=100.64.2.2 dst=198.51.100.2 sport=38640 dport=80 src=198.51.100.2 dst=203.0.113.9 sport=80 dport=40007 [ASSURED] mark=0 use=1\ntcp      6 119 TIME_WAIT src=100.64.1.2 dst=198.51.100.2 sport=33458 dport=80 src=198.51.100.2 dst=203.0.113.9 sport=80 dport=40005 [ASSURED] mark=0 use=1\n"
+    },
+    {
+      "name": "CGNAT PAT remaps colliding subscriber source ports for same destination",
+      "observed_peers": [
+        "peer=203.0.113.9:40000",
+        "peer=203.0.113.9:40005"
+      ]
+    },
+    {
+      "name": "customer port forward alone cannot cross carrier NAT or its inbound firewall"
+    },
+    {
+      "name": "explicit carrier plus customer DNAT publishes selected inner service"
+    },
+    {
+      "name": "adjacent unmapped public port stays inaccessible"
+    },
+    {
+      "name": "netem adds measured delay on selected simulated egress",
+      "ping": "PING 198.51.100.2 (198.51.100.2) 56(84) bytes of data.\n64 bytes from 198.51.100.2: icmp_seq=1 ttl=61 time=105 ms\n\n--- 198.51.100.2 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 105.361/105.361/105.361/0.000 ms\n"
+    },
+    {
+      "name": "deterministic packet-loss injection breaks service and cleanup restores it"
+    },
+    {
+      "name": "carrier-link packet capture independently confirms GRE encapsulation",
+      "capture_excerpt": [
+        "reading from file /lab/net-resume/carrier-eth2.pcap, link-type EN10MB (Ethernet), snapshot length 65536",
+        "03:10:56.326856 IP 203.0.113.2 > 198.51.100.2: GREv0, length 88: IP 10.10.0.1 > 10.20.0.1: ICMP echo request, id 570, seq 1, length 64",
+        "03:10:56.331823 IP 198.51.100.2 > 203.0.113.2: GREv0, length 88: IP 10.20.0.1 > 10.10.0.1: ICMP echo reply, id 570, seq 1, length 64",
+        "03:10:56.434853 IP 203.0.113.2 > 198.51.100.2: GREv0, length 64: IP 10.10.0.1.40644 > 10.20.0.1.80: Flags [S], seq 1479941513, win 64240, options [mss 1460,sackOK,TS val 963747443 ecr 0,nop,wscale 7], length 0",
+        "03:10:56.436627 IP 198.51.100.2 > 203.0.113.2: GREv0, length 64: IP 10.20.0.1.80 > 10.10.0.1.40644: Flags [S.], seq 2209454495, ack 1479941514, win 65504, options [mss 1436,sackOK,TS val 1459280452 ecr 963747443,nop,wscale 7], length 0",
+        "03:10:56.438023 IP 203.0.113.2 > 198.51.100.2: GREv0, length 56: IP 10.10.0.1.40644 > 10.20.0.1.80: Flags [.], ack 1, win 502, options [nop,nop,TS val 963747448 ecr 1459280452], length 0"
+      ]
+    },
+    {
+      "name": "all guests stopped; enclosing network remains loopback-only with no routes"
+    }
+  ]
+}

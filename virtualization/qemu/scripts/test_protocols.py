@@ -56,6 +56,8 @@ class ProtocolTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, 'CommandNotFound'):
                 client.execute('unknown')
             self.assertEqual(len(client.events), 3)
+            self.assertEqual(client.wait_event('STOP')['event'], 'STOP')
+            self.assertEqual(len(client.events), 2)
 
     def test_qga_discards_stale_bytes_before_matching_sync(self):
         def handler(connection, stream):

@@ -57,6 +57,23 @@ class QMP:
         self.stream.close()
         self.socket.close()
 
+    def wait_event(self, name, predicate=None):
+        """Wait for asynchronous completion, retaining unrelated events."""
+        predicate = predicate or (lambda event: True)
+        deadline = time.monotonic() + self.timeout
+        while True:
+            for index, event in enumerate(self.events):
+                if event.get('event') == name and predicate(event):
+                    return self.events.pop(index)
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise TimeoutError(f'No QMP event {name}')
+            self.socket.settimeout(remaining)
+            event = self.read()
+            if 'event' not in event:
+                raise RuntimeError(f'Unexpected response while waiting for event: {event}')
+            self.events.append(event)
+
     def __enter__(self):
         return self
 

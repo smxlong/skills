@@ -69,7 +69,9 @@ then `device_add` referencing the format node. On q35, provision a suitable
 `pcie-root-port` at launch and attach the hotplug device to that port; `pcie.0`
 itself does not provide hotplug slots. Check guest enumeration, not just QMP.
 Before unplugging, stop guest users/unmount; request `device_del`, then wait
-for `DEVICE_DELETED` or guest/query confirmation before `blockdev-del`. Remove
+for `DEVICE_DELETED` (the helper's `wait_event` supports this) or confirmed host
+device removal before `blockdev-del`. Guest enumeration can disappear before
+QEMU finishes releasing its backend. Remove
 format before file backend. Rejected devices don't imply their backend nodes
 were automatically cleaned up. Device capabilities/slots constrain memory and
 CPU hotplug too; don't extrapolate from a successful disk addition.

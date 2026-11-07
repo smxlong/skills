@@ -1,5 +1,9 @@
 # Networking and access
 
+For an entirely artificial internet with routers, workload nodes, GRE and
+consumer/carrier NAT, use [simulated-internet.md](simulated-internet.md).
+That workflow deliberately has **no** user-mode uplink or host forwarding.
+
 Start with unprivileged user-mode networking for an ordinary disposable VM:
 
 ```bash

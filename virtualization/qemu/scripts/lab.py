@@ -43,7 +43,7 @@ def copy_binary(binary, root):
             shutil.copy2(library, dest)
 
 
-def initramfs(work):
+def guest_root(work):
     root = work / 'root'
     for directory in ('bin', 'proc', 'sys', 'dev', 'tmp', 'run', 'var/run', 'mnt/disk', 'www', 'etc'):
         (root / directory).mkdir(parents=True)
@@ -58,6 +58,19 @@ def initramfs(work):
         compressed.unlink()
     version = next((root / 'lib/modules').iterdir()).name
     run('depmod', '-b', root, version)
+    return root
+
+
+def pack_initramfs(root, target):
+    names = ['.'] + sorted(str(path.relative_to(root)) for path in root.rglob('*'))
+    packed = subprocess.check_output(['cpio', '-o', '-H', 'newc'], cwd=root,
+                                     input=('\n'.join(names) + '\n').encode(), stderr=subprocess.DEVNULL)
+    target.write_bytes(gzip.compress(packed, compresslevel=1))
+    return target
+
+
+def initramfs(work):
+    root = guest_root(work)
     (root / 'www/index.html').write_text('qemu-lab-network-ok\n')
     (root / 'www/respond').write_text('''#!/bin/sh
 while IFS= read -r line; do
@@ -95,12 +108,7 @@ export PS1='lab# '
 exec /bin/sh
 ''')
     (root / 'init').chmod(0o755)
-    names = ['.'] + sorted(str(path.relative_to(root)) for path in root.rglob('*'))
-    packed = subprocess.check_output(['cpio', '-o', '-H', 'newc'], cwd=root,
-                                     input=('\n'.join(names) + '\n').encode(), stderr=subprocess.DEVNULL)
-    target = work / 'initramfs.gz'
-    target.write_bytes(gzip.compress(packed, compresslevel=1))
-    return target
+    return pack_initramfs(root, work / 'initramfs.gz')
 
 
 def migrate_machine(work):
@@ -291,6 +299,7 @@ def main():
             qmp.execute('device_add', {'driver':'virtio-blk-pci', 'drive':'hotdisk', 'id':'hotdev', 'bus':'rp1'})
             assert 'vdb' in guest('sleep 1; ls /sys/block')
             qmp.execute('device_del', {'id':'hotdev'})
+            qmp.wait_event('DEVICE_DELETED', lambda event: event.get('data',{}).get('device') == 'hotdev')
             wait_for(lambda: 'vdb' not in guest('ls /sys/block'))
             qmp.execute('blockdev-del', {'node-name':'hotdisk'})
             qmp.execute('blockdev-del', {'node-name':'hotfile'})

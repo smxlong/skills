@@ -3,7 +3,8 @@
 Validated November 7, 2026 UTC with QEMU 10.0.0, Alpine 3.22 userspace,
 Linux 6.12.115-0-virt guest, TCG, q35, one vCPU and 768 MiB guest RAM.
 The Docker image ID was
-`sha256:0a1d120824500dda7858f519477e3a6275834d51b45f26eff5f2ac187ebb7cca`.
+`sha256:882d2bb4afd3f246ebfeafeee18d7cc5a7472224ae53c482bcc8bcec5c3a6c26`
+on the follow-up regression run after adding network utilities.
 The base Alpine digest was
 `sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f`.
 The recipe uses distribution repositories: future package versions may change.
@@ -83,10 +84,18 @@ successful happy-path VM run alone would not establish.
 - devtmpfs/mdev creates the port device but not necessarily the guest-agent
   named symlink. The lab derives that mapping from sysfs explicitly.
 - Hotplug on q35's root bus fails; a cold-plugged PCIe root port works.
+- Guest block-device removal can precede release of QEMU's block backend.
+  Wait for the matching DEVICE_DELETED event before deleting backend nodes;
+  this was caught during the follow-up regression and revalidated.
 - HMP savevm/loadvm need their text result inspected even inside a successful
   QMP envelope. Actual RAM and disk restoration were checked afterward.
 
 ## Limits
+
+The separate [simulated internet lab](simulated-internet.md) validates 24
+multi-VM routing, GRE, consumer DHCP/DNS/NAT and CGNAT checks with no actual
+network uplink. The VM checks above were all rerun after extracting their
+shared initramfs builder. The network lab does not use or validate TAP/bridges.
 
 KVM/HVF/WHPX, ARM, UEFI/NVRAM/TPM, real cloud-image cloud-init/SSH provisioning,
 libvirt/Proxmox, TAP/bridges, virtiofs, CPU/memory hotplug, live block

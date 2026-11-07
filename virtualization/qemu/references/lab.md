@@ -1,5 +1,9 @@
 # Verified experiments and reproduction
 
+For the complete rationale, test matrices, diagrams, failure history and scope
+of both laboratories, read [the final report](final-report.md). Use this page
+for the shorter VM reproduction procedure.
+
 Validated November 7, 2026 UTC with QEMU 10.0.0, Alpine 3.22 userspace,
 Linux 6.12.115-0-virt guest, TCG, q35, one vCPU and 768 MiB guest RAM.
 The Docker image ID was

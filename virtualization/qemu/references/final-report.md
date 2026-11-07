@@ -1,6 +1,7 @@
 # Final report: QEMU operations and an isolated simulated internet
 
-**Validation date:** November 7, 2026 UTC.  
+**Validation date:** November 7, 2026 UTC.
+
 **Result:** a reusable QEMU skill, two runnable laboratories, protocol clients,
 and retained evidence for **21 VM checks, 24 network checks, and two protocol
 tests**. All final checks passed. Experimental guests were stopped afterward.

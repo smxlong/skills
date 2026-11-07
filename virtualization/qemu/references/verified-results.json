@@ -1,0 +1,168 @@
+{
+  "qemu": "QEMU emulator version 10.0.0",
+  "accelerator": "tcg",
+  "checks": [
+    {
+      "name": "overlay isolation",
+      "detail": [
+        {
+          "children": [
+            {
+              "name": "file",
+              "info": {
+                "children": [],
+                "virtual-size": 393216,
+                "filename": "branch.qcow2",
+                "format": "file",
+                "actual-size": 331776,
+                "format-specific": {
+                  "type": "file",
+                  "data": {}
+                },
+                "dirty-flag": false
+              }
+            }
+          ],
+          "backing-filename-format": "qcow2",
+          "virtual-size": 67108864,
+          "filename": "branch.qcow2",
+          "cluster-size": 65536,
+          "format": "qcow2",
+          "actual-size": 331776,
+          "format-specific": {
+            "type": "qcow2",
+            "data": {
+              "compat": "1.1",
+              "compression-type": "zlib",
+              "lazy-refcounts": false,
+              "refcount-bits": 16,
+              "corrupt": false,
+              "extended-l2": false
+            }
+          },
+          "full-backing-filename": "/lab/final/base.qcow2",
+          "backing-filename": "/lab/final/base.qcow2",
+          "dirty-flag": false
+        },
+        {
+          "children": [
+            {
+              "name": "file",
+              "info": {
+                "children": [],
+                "virtual-size": 393216,
+                "filename": "/lab/final/base.qcow2",
+                "format": "file",
+                "actual-size": 331776,
+                "format-specific": {
+                  "type": "file",
+                  "data": {}
+                },
+                "dirty-flag": false
+              }
+            }
+          ],
+          "virtual-size": 67108864,
+          "filename": "/lab/final/base.qcow2",
+          "cluster-size": 65536,
+          "format": "qcow2",
+          "actual-size": 331776,
+          "format-specific": {
+            "type": "qcow2",
+            "data": {
+              "compat": "1.1",
+              "compression-type": "zlib",
+              "lazy-refcounts": false,
+              "refcount-bits": 16,
+              "corrupt": false,
+              "extended-l2": false
+            }
+          },
+          "dirty-flag": false
+        }
+      ]
+    },
+    {
+      "name": "offline internal disk snapshot restore",
+      "detail": null
+    },
+    {
+      "name": "flatten compare grow and integrity check",
+      "detail": null
+    },
+    {
+      "name": "safe rebase preserves inherited sectors",
+      "detail": null
+    },
+    {
+      "name": "commit writes to backing image in isolated chain",
+      "detail": null
+    },
+    {
+      "name": "Linux guest boots under TCG with serial console and virtio disk",
+      "detail": null
+    },
+    {
+      "name": "user network host forward reaches guest HTTP server",
+      "detail": null
+    },
+    {
+      "name": "guest filesystem read write and sync",
+      "detail": null
+    },
+    {
+      "name": "guest agent synchronization ping exec and exit-status polling",
+      "detail": null
+    },
+    {
+      "name": "guest agent filesystem freeze and guaranteed thaw",
+      "detail": null
+    },
+    {
+      "name": "QMP negotiation discovery pause resume",
+      "detail": {
+        "commands": 233
+      }
+    },
+    {
+      "name": "runtime link down and up reflected inside guest",
+      "detail": null
+    },
+    {
+      "name": "QMP structured error handling",
+      "detail": null
+    },
+    {
+      "name": "active image rejects concurrent offline mutation",
+      "detail": null
+    },
+    {
+      "name": "live internal VM snapshot restores both RAM and guest disk",
+      "detail": null
+    },
+    {
+      "name": "live disk hotplug guest detection unplug and backend removal",
+      "detail": null
+    },
+    {
+      "name": "atomic live external disk snapshot pivots active block graph",
+      "detail": null
+    },
+    {
+      "name": "hard reset reboots guest with persistent disk and cleared volatile state",
+      "detail": null
+    },
+    {
+      "name": "QMP quit releases disk for offline integrity check",
+      "detail": null
+    },
+    {
+      "name": "external snapshot keeps new writes separate from checkpoint",
+      "detail": null
+    },
+    {
+      "name": "local Unix-socket migration of diskless paused machine and destination resume",
+      "detail": null
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "QEMU VM Experiments"
+  short_description: "Operate QEMU guests and repeatable VM experiments"
+  default_prompt: "Use $qemu to plan and run an isolated VM experiment, verify its outcome, and preserve a reproducible setup."

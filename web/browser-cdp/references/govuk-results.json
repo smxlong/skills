@@ -1,0 +1,232 @@
+{
+  "passed": true,
+  "observed_at": "2026-11-10T16:25:18.203484+00:00",
+  "site": "GOV.UK",
+  "navigation_levels": 3,
+  "pages": [
+    {
+      "source_url": "https://www.gov.uk/browse/benefits",
+      "status": 200,
+      "html_bytes": 74451,
+      "html_sha256": "ad42422550c527f589dbcca5b118946626080f099364de5bfdd5ee53d3757e3b",
+      "main_links": 11,
+      "all_links": 77,
+      "headings": [
+        "Benefits",
+        "Most viewed",
+        "Topics",
+        "Manage an existing benefit, payment or claim",
+        "Benefits and financial support if you're looking for work",
+        "Benefits and financial support if you're temporarily unable to work",
+        "Benefits and financial support for families",
+        "Benefits and financial support if you're disabled or have a health condition",
+        "Benefits and financial support if you're caring for someone",
+        "Benefits and financial support if you're on a low income",
+        "Benefits and financial support when someone dies"
+      ],
+      "elapsed_s": 0.59,
+      "capture": "00.html",
+      "main_selector": "main"
+    },
+    {
+      "source_url": "https://www.gov.uk/browse/benefits/families",
+      "status": 200,
+      "html_bytes": 78814,
+      "html_sha256": "6601243a66627adb901f166d6b75e7e8d04eb975daa88ffd78b15cfd6f775e37",
+      "main_links": 28,
+      "all_links": 95,
+      "headings": [
+        "Benefits and financial support for families",
+        "Find out what you could get",
+        "Time off and pay when you have or adopt a child",
+        "Child Benefit",
+        "Support for separated families",
+        "Support for disabled children",
+        "Help with childcare costs",
+        "Other support"
+      ],
+      "elapsed_s": 0.632,
+      "capture": "01.html",
+      "main_selector": "main"
+    },
+    {
+      "source_url": "https://www.gov.uk/child-benefit",
+      "status": 200,
+      "html_bytes": 112490,
+      "html_sha256": "4a335eb855ea45dcb7351319f596b7f46b912d70320fd0d8eb424e356b9c7f58",
+      "main_links": 30,
+      "all_links": 98,
+      "headings": [
+        "Child Benefit",
+        "Contents",
+        "How it works",
+        "Child Benefit and protecting your State Pension",
+        "If your circumstances change",
+        "Related content",
+        "Collection",
+        "Explore the topic"
+      ],
+      "elapsed_s": 1.32,
+      "capture": "02.html",
+      "main_selector": "main"
+    },
+    {
+      "source_url": "https://www.gov.uk/child-benefit/what-youll-get",
+      "status": 200,
+      "html_bytes": 93945,
+      "html_sha256": "8f869b8524af7df602091488b0c87393c581551b67408b70928d515765b6fa7d",
+      "main_links": 31,
+      "all_links": 99,
+      "headings": [
+        "Child Benefit",
+        "Contents",
+        "What you'll get",
+        "If families split up",
+        "If families join together",
+        "If you or your partner earn over the threshold",
+        "If you\u2019re under 16",
+        "Related content",
+        "Collection",
+        "Explore the topic"
+      ],
+      "elapsed_s": 1.075,
+      "capture": "03.html",
+      "main_selector": "main"
+    }
+  ],
+  "selector_candidates": [
+    {
+      "selector": "main .gem-c-govspeak",
+      "matches": 1,
+      "paragraphs": 18,
+      "tables": 1
+    },
+    {
+      "selector": "main article",
+      "matches": 0,
+      "paragraphs": 0,
+      "tables": 0
+    },
+    {
+      "selector": "main .govuk-grid-column-two-thirds",
+      "matches": 2,
+      "paragraphs": 18,
+      "tables": 1
+    },
+    {
+      "selector": "main",
+      "matches": 1,
+      "paragraphs": 18,
+      "tables": 1
+    }
+  ],
+  "selected_content_selector": "main .gem-c-govspeak",
+  "content_records": 23,
+  "table_count": 1,
+  "table_rows": 3,
+  "content_sha256": "cab3c15f480f265a52335219fca695f64e3c78fcf3b50a6df68209b6f4b90279",
+  "content_bytes": 5036,
+  "outside_main_headings": [
+    "Cookies on GOV.UK",
+    "Navigation menu",
+    "Services and information",
+    "Government activity",
+    "Search",
+    "Is this page useful?",
+    "Help us improve GOV.UK",
+    "Help us improve GOV.UK",
+    "Services and information",
+    "Government activity",
+    "Support links"
+  ],
+  "duplicate_heading_text_inside_and_outside": [],
+  "complete_scope": "All selected semantic blocks in one observed guidance body; linked pages not comprehensively crawled",
+  "elapsed_seconds": 27.528,
+  "pacing_seconds": 8,
+  "owned_tab_closed": true,
+  "preexisting_tabs_closed_by_probe": false,
+  "print_optimization": {
+    "passed": true,
+    "site": "GOV.UK",
+    "mode": "observed whole-guide print link",
+    "observed_at": "2026-11-10T16:26:17.233531+00:00",
+    "pages": [
+      {
+        "source_url": "https://www.gov.uk/child-benefit/print",
+        "status": 200,
+        "html_bytes": 88080,
+        "html_sha256": "ab2f1e95a80edcf5f4717c912088fcc650cd94f229570a0497d98a544ec3608e",
+        "main_links": 46,
+        "all_links": 114,
+        "headings": [
+          "Child Benefit",
+          "1. How it works",
+          "Child Benefit and protecting your State Pension",
+          "If your circumstances change",
+          "2. What you'll get",
+          "If families split up",
+          "If families join together",
+          "If you or your partner earn over the threshold",
+          "If you\u2019re under 16",
+          "3. When and how it's paid",
+          "4. Who can get Child Benefit",
+          "If your child is 16 or over"
+        ],
+        "elapsed_s": 0.631,
+        "capture": "00.html",
+        "main_selector": "main"
+      }
+    ],
+    "selector_candidates": [
+      {
+        "selector": "main .gem-c-govspeak",
+        "matches": 7,
+        "paragraphs": 98,
+        "tables": 1
+      },
+      {
+        "selector": "main .govuk-govspeak",
+        "matches": 0,
+        "paragraphs": 0,
+        "tables": 0
+      },
+      {
+        "selector": "main article",
+        "matches": 0,
+        "paragraphs": 0,
+        "tables": 0
+      },
+      {
+        "selector": "main section",
+        "matches": 7,
+        "paragraphs": 98,
+        "tables": 1
+      },
+      {
+        "selector": "main",
+        "matches": 1,
+        "paragraphs": 99,
+        "tables": 1
+      }
+    ],
+    "content_records": 135,
+    "bodies": 7,
+    "table_count": 1,
+    "table_rows": 3,
+    "elapsed_seconds": 1.025,
+    "scope": "All observed print-guide govspeak bodies, without linked secondary guidance",
+    "owned_tab_closed": true,
+    "observed_contents_sections": 7,
+    "print_sections": [
+      "1. How it works",
+      "2. What you'll get",
+      "3. When and how it's paid",
+      "4. Who can get Child Benefit",
+      "5. Make a claim",
+      "6. Make a change to your claim",
+      "7. Get help with your claim"
+    ],
+    "leaf_table_matches_print": true,
+    "verified_print_section_coverage": true
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "source": "https://www2.census.gov/programs-surveys/popest/datasets/",
+  "started_at": "2026-11-10T16:27:48.694078+00:00",
+  "finished_at": "2026-11-10T16:28:22.008047+00:00",
+  "elapsed_seconds": 33.316,
+  "pages": [
+    {
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/",
+      "dataset_entries": 31,
+      "html_bytes": 21093,
+      "sha256": "ad9137ad818114aad4237f97b2789dc3da122c1673fb4d96d0f7ffe4c9a11a1f"
+    },
+    {
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/",
+      "dataset_entries": 5,
+      "html_bytes": 15916,
+      "sha256": "3d8e3dd7e602a40b0e4ba786194edcf1f85666a243d29806fd48bde3957a6739"
+    },
+    {
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/counties/",
+      "dataset_entries": 2,
+      "html_bytes": 15345,
+      "sha256": "625290922cde1a5d81735912ad25bed0cad8a4004c509d717f463fe5707dec65"
+    },
+    {
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/counties/totals/",
+      "dataset_entries": 1,
+      "html_bytes": 15199,
+      "sha256": "e2ee47e2308a3bcac50c2becd87f2843b269bd934833869a33d7ec10f55eee36"
+    }
+  ],
+  "directory_entries": 39,
+  "export": {
+    "bytes": 1769182,
+    "sha256": "abcc8720d669e793bbfdcd440eeec37a78db3b452adbe4ccd1eadf7c72b522b9",
+    "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/counties/totals/co-est2024-alldata.csv",
+    "observed_at": "2026-11-10T16:28:21.959599+00:00",
+    "rows": 3195,
+    "columns": 83,
+    "fields": [
+      "SUMLEV",
+      "REGION",
+      "DIVISION",
+      "STATE",
+      "COUNTY",
+      "STNAME",
+      "CTYNAME",
+      "ESTIMATESBASE2020",
+      "POPESTIMATE2020",
+      "POPESTIMATE2021",
+      "POPESTIMATE2022",
+      "POPESTIMATE2023",
+      "POPESTIMATE2024",
+      "NPOPCHG2020",
+      "NPOPCHG2021",
+      "NPOPCHG2022",
+      "NPOPCHG2023",
+      "NPOPCHG2024",
+      "BIRTHS2020",
+      "BIRTHS2021",
+      "BIRTHS2022",
+      "BIRTHS2023",
+      "BIRTHS2024",
+      "DEATHS2020",
+      "DEATHS2021",
+      "DEATHS2022",
+      "DEATHS2023",
+      "DEATHS2024",
+      "NATURALCHG2020",
+      "NATURALCHG2021",
+      "NATURALCHG2022",
+      "NATURALCHG2023",
+      "NATURALCHG2024",
+      "INTERNATIONALMIG2020",
+      "INTERNATIONALMIG2021",
+      "INTERNATIONALMIG2022",
+      "INTERNATIONALMIG2023",
+      "INTERNATIONALMIG2024",
+      "DOMESTICMIG2020",
+      "DOMESTICMIG2021",
+      "DOMESTICMIG2022",
+      "DOMESTICMIG2023",
+      "DOMESTICMIG2024",
+      "NETMIG2020",
+      "NETMIG2021",
+      "NETMIG2022",
+      "NETMIG2023",
+      "NETMIG2024",
+      "RESIDUAL2020",
+      "RESIDUAL2021",
+      "RESIDUAL2022",
+      "RESIDUAL2023",
+      "RESIDUAL2024",
+      "GQESTIMATESBASE2020",
+      "GQESTIMATES2020",
+      "GQESTIMATES2021",
+      "GQESTIMATES2022",
+      "GQESTIMATES2023",
+      "GQESTIMATES2024",
+      "RBIRTH2021",
+      "RBIRTH2022",
+      "RBIRTH2023",
+      "RBIRTH2024",
+      "RDEATH2021",
+      "RDEATH2022",
+      "RDEATH2023",
+      "RDEATH2024",
+      "RNATURALCHG2021",
+      "RNATURALCHG2022",
+      "RNATURALCHG2023",
+      "RNATURALCHG2024",
+      "RINTERNATIONALMIG2021",
+      "RINTERNATIONALMIG2022",
+      "RINTERNATIONALMIG2023",
+      "RINTERNATIONALMIG2024",
+      "RDOMESTICMIG2021",
+      "RDOMESTICMIG2022",
+      "RDOMESTICMIG2023",
+      "RDOMESTICMIG2024",
+      "RNETMIG2021",
+      "RNETMIG2022",
+      "RNETMIG2023",
+      "RNETMIG2024"
+    ],
+    "malformed_rows": 0,
+    "missing_cells": 0,
+    "duplicate_geography_keys": 0,
+    "county_population_sum_2024": 340110988,
+    "encoding": "cp1252",
+    "decoded_replacement_characters": 0,
+    "status": 200,
+    "type": "text/csv",
+    "response_bytes": 1769182,
+    "playwright_body_bytes": 1769183,
+    "playwright_body_matches_arraybuffer": false
+  },
+  "csv_rows_reparsed": 3195,
+  "state_rows": 51,
+  "county_rows": 3144,
+  "states_reconciled_to_counties": 51,
+  "state_population_sum_2024": 340110988,
+  "raw_high_byte_counts": {
+    "241": 1
+  },
+  "playwright_body_high_byte_counts": {
+    "177": 1,
+    "195": 1
+  },
+  "scope": "All rows in the one selected CSV and entries in four selected directory pages; not a census of the full site.",
+  "minimum_request_spacing_seconds": 8.1,
+  "raw_artifact_bytes": 10692160,
+  "observed_limitations": [
+    "Only four selected directory pages and one selected CSV were captured.",
+    "Original-page liveness checks overlapped other agents closing their own test tabs; this probe closed only its explicitly owned page.",
+    "ArrayBuffer transfer and response.body() buffer the modest export in memory; this is not an unbounded streaming implementation.",
+    "CP1252 was an explicit strict, round-trip verified parsing choice; Content-Type did not declare a charset."
+  ],
+  "improvements": [
+    "Traverse observed directory table links, excluding sort and parent links and external footer/navigation links.",
+    "Capture exact ArrayBuffer bytes before parsing; response.body() can transcode legacy text through CDP.",
+    "Validate strict encoding and replacement counts; schema/count checks alone miss text corruption.",
+    "Validate hierarchical aggregates: each of 51 state rows equals its county sum."
+  ],
+  "dataset_jsonl_bytes": 7052558,
+  "dataset_cells": 265185,
+  "reusable_helper_verification": {
+    "public_export": {
+      "bytes": 1769182,
+      "sha256": "abcc8720d669e793bbfdcd440eeec37a78db3b452adbe4ccd1eadf7c72b522b9",
+      "source_url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/counties/totals/co-est2024-alldata.csv",
+      "status": 200,
+      "content_type": "text/csv",
+      "observed_at": "2026-11-10T16:29:32.821521+00:00",
+      "representation": "fetch-response-bytes"
+    },
+    "limit_checks": {
+      "declared": true,
+      "streamed": true,
+      "exact_limit_and_binary_chunks": true
+    },
+    "elapsed_seconds": 9.049,
+    "public_requests": 2,
+    "public_request_spacing_seconds": 8.1
+  },
+  "route_fulfilled_verification": {
+    "response_bytes": 64,
+    "limit_16_rejected": true,
+    "chunk_size_7_exact": true
+  },
+  "text_representation_comparison": {
+    "fetch_text": {
+      "bytes": 1769184,
+      "replacement_characters": 1
+    },
+    "playwright_response_body": {
+      "bytes": 1769183,
+      "encoding": "utf-8",
+      "f1_to_c3b1_transcoded": true
+    },
+    "fetch_arraybuffer": {
+      "bytes": 1769182,
+      "encoding_choice": "cp1252",
+      "roundtrip_verified": true,
+      "replacement_characters": 0
+    }
+  },
+  "reusable_helper_local_regression": {
+    "passed": true,
+    "checks": {
+      "invalid_config_before_side_effects": 5,
+      "declared_limit_rejected": true,
+      "all_byte_values_preserved": true,
+      "undeclared_stream_limit_rejected": true,
+      "existing_output_rejected_before_fetch": true,
+      "empty_response": true
+    },
+    "elapsed_seconds": 0.656,
+    "external_requests": 0,
+    "owned_tab_closed": true
+  }
+}

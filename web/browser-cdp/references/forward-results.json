@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "records": 12000,
+  "unique_ids": 12000,
+  "decoy_excluded": true,
+  "mounted_fixture_complete": true,
+  "production_completeness_claim": false,
+  "session_stdout_bytes": 12653,
+  "max_stdout_line_bytes": 2179,
+  "ambiguous_control_rejected": true,
+  "session_recovered_after_errors": true,
+  "original_tabs_preserved": true,
+  "existing_output_preserved": true,
+  "evaluation_skipped_on_output_conflict": true,
+  "owned_popup_cleaned": true,
+  "console_url_redacted": true,
+  "full_provenance_preserved": true,
+  "elapsed_seconds": 5.483,
+  "html_sha256": "0bc6fd22afb950fbf5a7c791ff1363c477cc0a26935cd238d049a08ee6f6c3ef"
+}

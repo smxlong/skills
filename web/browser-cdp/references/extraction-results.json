@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "large_records": 12000,
+  "html_bytes": 3759228,
+  "jsonl_bytes": 1332191,
+  "unique_paginated": 1000,
+  "pagination_observations": 1100,
+  "pages": 11,
+  "virtual_records": 240,
+  "virtual_windows": 12,
+  "controls": [
+    "fill/save readback",
+    "iframe",
+    "open shadow DOM",
+    "delayed render"
+  ],
+  "timings_seconds": {
+    "large": 2.762,
+    "offline_helpers": 4.381,
+    "pagination": 1.475,
+    "virtual": 0.492
+  },
+  "elapsed_seconds": 11.954,
+  "html_sha256": "0bc6fd22afb950fbf5a7c791ff1363c477cc0a26935cd238d049a08ee6f6c3ef",
+  "original_tabs_preserved": true,
+  "helper_session_stdout_bytes": 5750,
+  "unicode_bounded_bytes": 8084,
+  "helper_offline_and_session_passed": true
+}

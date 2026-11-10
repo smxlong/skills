@@ -1,0 +1,17 @@
+{
+  "scoped_form": true,
+  "dialog": true,
+  "popup": true,
+  "download_save": "Error: Download.save_as: canceled",
+  "download_bytes_verified": true,
+  "upload": true,
+  "iframe": true,
+  "shadow": true,
+  "network": true,
+  "delayed_condition": true,
+  "cdp_screenshot": true,
+  "navigation": true,
+  "original_tabs_preserved": true,
+  "elapsed_seconds": 5.672,
+  "observed_at_utc": "2026-11-10T16:17:32Z"
+}

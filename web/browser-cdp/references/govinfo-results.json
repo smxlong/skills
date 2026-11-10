@@ -1,0 +1,47 @@
+{
+  "source": "https://www.govinfo.gov/app/collection/cfr/2025/title1",
+  "started_at": "2026-11-10T16:33:45.555941+00:00",
+  "finished_at": "2026-11-10T16:34:25.693662+00:00",
+  "elapsed_seconds": 40.739,
+  "minimum_public_action_interval_seconds": 8,
+  "tree_transitions": 3,
+  "selected_json_responses_saved": 4,
+  "owned_tabs_closed": 1,
+  "ownership_target_journaled": true,
+  "html": {
+    "bytes": 574488,
+    "sha256": "1134bbd548d5163d955dc4dc1d514a1b1caf30acba8d007774db649ef515724b",
+    "r05_elements": 294,
+    "r05_with_nested_r05": 293,
+    "source_text_characters": 570525,
+    "naive_descendant_extraction_characters": 111291461,
+    "flat_regex_records": 303,
+    "flat_regex_unique_ids": 275,
+    "flat_regex_duplicate_observations": 28,
+    "flat_regex_false_positive_ids": ["426.104."],
+    "node_local_unique_ids": 274
+  },
+  "xml": {
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2025-title1-vol1/xml/CFR-2025-title1-vol1.xml",
+    "transport": "browser-origin fetch of observed public URL, bytes saved locally",
+    "bytes": 814758,
+    "sha256": "933d9cf35c4342d4d55cd4dc771a73b46a0c8f88423b935da470ad5862d13e0d",
+    "root_tag": "CFRDOC",
+    "section_records": 288,
+    "unique_section_ids": 288,
+    "node_local_html_ids_matched": 274,
+    "reserved_range_ids_absent_from_html_candidates": 14
+  },
+  "exploratory_xml_navigation": {
+    "response_body_bytes": 1046341,
+    "actual_root": "{http://www.w3.org/1999/xhtml}html",
+    "expected_section_elements_found": 0,
+    "interpretation": "Navigation response body exposed transformed XHTML; schema inspection triggered raw fetch"
+  },
+  "limits": [
+    "One 2025 Title 1 volume, not all CFR years or titles",
+    "Node-local HTML candidates omit reserved section ranges and are not a complete volume inventory",
+    "XML and HTML ID agreement does not prove full body-text equivalence",
+    "Exploratory setup failure left one unmarked blank tab; final replay journaled ownership and closed its tab"
+  ]
+}

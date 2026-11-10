@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "site": "Oregon Legislature",
+  "pages": [
+    {
+      "name": "root",
+      "url": "https://www.oregonlegislature.gov/bills_laws/Pages/ORS.aspx",
+      "html_bytes": 350287,
+      "sha256": "d79e224e08e5908ba5cbf2646ea89e5e5bf9d769dc1750f9321e4056a6229f92",
+      "headings": 10,
+      "links": 392
+    },
+    {
+      "name": "volume",
+      "url": "https://www.oregonlegislature.gov/bills_laws/Pages/ORS.aspx",
+      "html_bytes": 354708,
+      "sha256": "b0372210b0267bcd356d52fc9feaef8eb8fc65e33effb633d58128dd1bd91789",
+      "headings": 10,
+      "links": 405
+    },
+    {
+      "name": "title",
+      "url": "https://www.oregonlegislature.gov/bills_laws/Pages/ORS.aspx",
+      "html_bytes": 354708,
+      "sha256": "b0372210b0267bcd356d52fc9feaef8eb8fc65e33effb633d58128dd1bd91789",
+      "headings": 10,
+      "links": 405
+    },
+    {
+      "name": "chapter",
+      "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors090.html",
+      "html_bytes": 1222347,
+      "sha256": "2879782ad63dfd0193dd53572d2b4624bde2ce1ab6d34a4c879a6f08c8cd1879",
+      "headings": 1,
+      "links": 6
+    }
+  ],
+  "tree_edges": 3,
+  "controls": "Observed row label -> unique anchor; generated IDs avoided",
+  "extraction": {
+    "paragraphs": 3409,
+    "section_occurrences": 208,
+    "distinct_section_numbers": 207,
+    "repeated_section_numbers": {
+      "90.303": 2
+    },
+    "preamble_paragraphs": 421,
+    "partition_verified": true,
+    "paragraph_artifact": {
+      "bytes": 744665,
+      "sha256": "a13451362287f130d22e94e26553054aa962fb0a293df892e038116660fd7179"
+    },
+    "section_artifact": {
+      "bytes": 769310,
+      "sha256": "77aa9f8a06a6fe8d4fb0415d1db5e9539a002538f7f9d6158787c3eb43b38acc"
+    }
+  },
+  "elapsed_seconds": 27.317,
+  "complete_scope": "Every paragraph under #main in one observed chapter; no claim of legal completeness or currency",
+  "owned_tab_closed": true
+}
